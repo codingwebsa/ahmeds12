@@ -1,3 +1,5 @@
+import { withContentlayer } from "next-contentlayer"
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
@@ -17,7 +19,7 @@ const ContentSecurityPolicy = `
         script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
         style-src 'self' 'unsafe-inline';
         img-src * blob: data:;
-        media-src 'none';
+        media-src 'self';
         connect-src *;
         font-src 'self' data:;
     `
@@ -60,4 +62,4 @@ const securityHeaders = [
   },
 ]
 
-export default nextConfig
+export default withContentlayer(nextConfig)

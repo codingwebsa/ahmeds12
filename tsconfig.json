@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -19,7 +20,9 @@
       }
     ],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      // added so the imports on files are small with `contentlayer/generated` aliases
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": [
@@ -27,7 +30,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "tailwind.config.cjs"
+    "tailwind.config.cjs",
+    ".contentlayer/generated" // required for content layer work with typescript
   ],
   "exclude": ["node_modules"]
 }
