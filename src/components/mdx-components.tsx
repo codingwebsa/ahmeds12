@@ -4,12 +4,12 @@ import type { ClassValue } from "clsx"
 import { useMDXComponent } from "next-contentlayer/hooks"
 
 import { cn } from "~/lib/utils"
+import MDImage from "~/components/markdown/image"
+import { Skeleton } from "./ui/skeleton"
 
-const MDImage = dynamic(() => import("~/components/markdown/image"), {
+const MDVideo = dynamic(() => import("~/components/markdown/video",), {
   ssr: false,
-})
-const MDVideo = dynamic(() => import("~/components/markdown/video"), {
-  ssr: false,
+  loading: () => <Skeleton className="w-full aspect-video h-auto" />
 })
 
 const components = {

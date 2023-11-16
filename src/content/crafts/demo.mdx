@@ -7,6 +7,8 @@ date: 08-04-2023
 
 Another thing *that* we **enjoyed** as a ~team~ was ~~breaking~~ the design up __into__ chunks. Not very systematically from the get-go, but mostly intuitively as we went along. We had big ambitions for the page, but instead of dragging an already massive pull request out, we shipped the static version as soon as it was an improvement over what was already in production. Animations and adjustments to other surfaces could follow up later.
 
+    <Video src="/images/crafts/demo/mercury.mp4" />
+
 In no particular order, we'll break down a couple of implementation details, some of which may be less trivial than others, but all of them were stimulating to build.
 
 ```js {2} showLineNumbers
@@ -57,21 +59,21 @@ I borrowed a technique from [Stripe](https://stripe.com) for these. By using a r
 The light glow is a CSS shadow. However, the only properties being animated are opacity and transform. Animating box-shadow would not be ideal since it would trigger a browser re-paint on every frame of the animation. Likely not to be a problem on modern computers, but older, less powerful devices, like smartphones, may drop frames and make the motion look sluggish.
 
 Instead, we toggle the opacity of pseudo elements with a shadow:
-<Image
-                    src="/images/crafts/demo/demo.jpg"
-                    width="718"
-                    height="404"
-                    alt="Image"
-                />
+    <Image
+          src="/images/crafts/demo/demo.jpg"
+          width="718"
+          height="404"
+          alt="Image"
+        />
 
 ## Using vodeo with nextjs to modify the default behavior & optimization
 
         <Image
-                    src="/images/crafts/demo/nextjs.gif"
-                    width="718"
-                    height="404"
-                    alt="Image"
-                />
+              src="/images/crafts/demo/nextjs.gif"
+              width="718"
+              height="404"
+              alt="Image"
+            />
 
 | Syntax    | Description |
 | --------- | ----------- |
@@ -82,4 +84,4 @@ Instead, we toggle the opacity of pseudo elements with a shadow:
 | Paragraph | Text        |
 | Paragraph | Text        |
 
-        <Video src="/images/crafts/demo/nextjs.mp4" />
+<Video src="/images/crafts/demo/nextjs.mp4" />

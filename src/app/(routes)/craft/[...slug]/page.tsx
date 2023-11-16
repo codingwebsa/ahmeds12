@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic"
 import { notFound } from "next/navigation"
 import { allCrafts } from "contentlayer/generated"
 
@@ -11,13 +10,7 @@ import Link from "next/link"
 
 import { Icons } from "~/components/icons"
 
-const CraftPageHeader = dynamic(
-  () => import("./_components/craft-page-header"),
-  {
-    loading: () => <p>Loading...</p>,
-    ssr: false,
-  }
-)
+import CraftPageHeader from "./_components/craft-page-header"
 
 interface CraftPageProps {
   params: {
@@ -91,7 +84,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
             <Mdx code={craft.body.code} />
           </div>
         </section>
-        <div className="flex-1 hidden lg:block" />
+        <div className="xl:flex-1 hidden lg:block lg:flex-[0.5]" />
       </div>
     </main>
   )
