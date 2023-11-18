@@ -5,6 +5,7 @@ import "~/styles/globals.css"
 import { siteConfig } from "~/config/site"
 import { fontBody, fontHeading } from "~/lib/fonts"
 import { cn } from "~/lib/utils"
+import Dock from "~/components/dock"
 import { ThemeProvider } from "~/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -33,6 +34,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <div className="max-w-fit mx-auto fixed bottom-0 left-1/2 -translate-x-1/2 mb-4 z-30">
+            <Dock />
+          </div>
         </ThemeProvider>
       </body>
     </html>
