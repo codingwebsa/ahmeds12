@@ -305,7 +305,7 @@ function PhotosIcon({ mouseX }: { mouseX: MotionValue }) {
         </TooltipContent>
         <TooltipTrigger asChild>
           <Link
-            href="/"
+            href="/photos"
             className="w-full h-full grid place-content-center relative"
           >
             <div className="relative">
