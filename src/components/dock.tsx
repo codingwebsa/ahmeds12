@@ -28,17 +28,17 @@ export default function Dock() {
     <motion.div
       onMouseMove={(e: any) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="mx-auto border-[hsl(0_0%_100%/0.077)] flex h-14 items-end gap-2 rounded-full bg-[hsl(0,0%,8.5%)] border px-2 pb-1.5"
+      className="mx-auto border-[hsl(0_0%_0%/0.077)] dark:border-[hsl(0_0%_100%/0.077)] flex h-14 items-end gap-2 rounded-full dark:bg-[hsl(0,0%,8.5%)] bg-[hsl(0,0%,95%)] border px-2 pb-1.5"
     >
       <TooltipProvider delayDuration={0}>
         <HomeIcon mouseX={mouseX} />
         <CraftIcon mouseX={mouseX} />
         <ProjectsIcon mouseX={mouseX} />
         <PhotosIcon mouseX={mouseX} />
-        <hr className="h-9 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent " />
+        <hr className="h-9 w-px bg-gradient-to-b from-transparent dark:via-white/20 via-black/20 to-transparent" />
         <TwitterIcon mouseX={mouseX} />
         <EmailIcon mouseX={mouseX} />
-        <hr className="h-9 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent " />
+        <hr className="h-9 w-px bg-gradient-to-b from-transparent dark:via-white/20 via-black/20 to-transparent" />
         <ToggleTheme mouseX={mouseX} />
       </TooltipProvider>
     </motion.div>
@@ -75,7 +75,7 @@ function HomeIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -149,7 +149,7 @@ function CraftIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -223,7 +223,7 @@ function ProjectsIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -295,7 +295,7 @@ function PhotosIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -369,7 +369,7 @@ function TwitterIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -438,7 +438,7 @@ function EmailIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -514,7 +514,7 @@ function ToggleTheme({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square text-[hsl(0,0%,49.4%)] w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,11%)] via-[hsl(0,0%,13.6%)] [background-size:200%_100%;] to-[hsl(0,0%,13.6%)]",
+          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -523,10 +523,7 @@ function ToggleTheme({ mouseX }: { mouseX: MotionValue }) {
           <p>Toggle theme</p>
         </TooltipContent>
         <TooltipTrigger asChild>
-          <Link
-            href="/"
-            className="w-full h-full grid place-content-center relative"
-          >
+          <button className="w-full h-full grid place-content-center relative">
             <div className="relative">
               <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
               <motion.svg
@@ -566,7 +563,7 @@ function ToggleTheme({ mouseX }: { mouseX: MotionValue }) {
                 )}
               </motion.svg>
             </div>
-          </Link>
+          </button>
         </TooltipTrigger>
       </motion.div>
     </Tooltip>

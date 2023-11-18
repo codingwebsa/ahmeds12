@@ -1,5 +1,9 @@
+[data-rehype-pretty-code-fragment] pre {
+  @apply bg-neutral-100 dark:bg-neutral-900 font-semibold dark:font-normal;
+}
+
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black dark:text-white;
   counter-reset: line;
   box-decoration-break: clone;
 }
@@ -16,13 +20,13 @@
   color: gray;
 }
 [data-rehype-pretty-code-fragment] .line--highlighted {
-  @apply bg-slate-300 bg-opacity-10;
+  @apply bg-neutral-500 dark:bg-neutral-800 bg-opacity-10;
 }
 [data-rehype-pretty-code-fragment] .line-highlighted span {
   @apply relative;
 }
 [data-rehype-pretty-code-fragment] .word--highlighted {
-  @apply rounded-md bg-slate-300 bg-opacity-10 p-1;
+  @apply rounded-md dark:bg-neutral-800 bg-neutral-500 bg-opacity-10 p-1;
 }
 [data-rehype-pretty-code-title] {
   @apply mt-4 py-2 px-4 text-sm font-medium font-mono rounded-lg w-fit;

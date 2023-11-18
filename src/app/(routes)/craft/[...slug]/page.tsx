@@ -53,7 +53,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
           <div className="mx-auto px-4 xl:px-10">
             <Link
               href="/craft"
-              className="flex gap-2 text-neutral-400 items-center text-sm"
+              className="flex gap-2 dark:text-neutral-400 text-neutral-700 items-center text-sm"
             >
               <Icons.arrowBendUpLeft className="h-4 w-4" />
               <p>Craft</p>
@@ -61,7 +61,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
             <aside className="mt-6 flex flex-col gap-2">
               {toc.items?.[0].items?.map((item, i) => (
                 <Link
-                  className="text-sm text-neutral-400 line-clamp-2 [text-wrap:balance]"
+                  className="text-sm dark:text-neutral-400 text-neutral-700 line-clamp-2 [text-wrap:balance]"
                   href={item.url}
                   key={`toc-${i}`}
                 >
@@ -74,7 +74,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
         <section className="flex-[2] lg:px-2 py-28 px-4 sm:px-10 md:px-16">
           <Link
             href="/craft"
-            className="flex gap-2 text-neutral-400 justify-start text-sm items-center lg:hidden mb-6"
+            className="flex gap-2 dark:text-neutral-400 text-neutral-700 justify-start text-sm items-center lg:hidden mb-6"
           >
             <Icons.arrowBendUpLeft className="h-4 w-4" />
             <p>Craft</p>

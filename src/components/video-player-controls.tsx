@@ -22,14 +22,14 @@ const VideoPlayerControls: React.FC<VideoPlayerControlsProps> = ({
   const dashOffset = dashArray * (1 - progress)
 
   return (
-    <div className="relative flex justify-center items-center">
+    <div className="relative rounded-full flex justify-center items-center">
       <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
         <circle
           cx={center}
           cy={center}
           r={radius}
           fill="transparent"
-          stroke="#404040"
+          stroke="#9191914d"
           strokeWidth={width}
         />
         <circle
