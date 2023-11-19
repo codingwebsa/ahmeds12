@@ -1,6 +1,4 @@
 {
-  "cSpell.words": [
-    "contentlayer"
-  ],
+  "cSpell.words": ["contentlayer"],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

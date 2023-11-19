@@ -53,6 +53,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
+  react-hacker-text:
+    specifier: ^1.0.2
+    version: 1.0.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   shiki:
     specifier: ^0.11.1
     version: 0.11.1
@@ -6899,7 +6902,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: true
 
   /property-information@6.4.0:
     resolution:
@@ -6979,12 +6981,27 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-hacker-text@1.0.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-WDnzTCp7mhTvX1k2laxPqkNh7KhhLnsPABBsHLZ8P2THH5c0H/RutnayAyrvTlIXfxyFVF8pRCGAMDt4z880wQ==,
+      }
+    engines: { node: ">=8", npm: ">=5" }
+    peerDependencies:
+      prop-types: ^15.5.4
+      react: ^15.0.0 || ^16.0.0
+      react-dom: ^15.0.0 || ^16.0.0
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-is@16.13.1:
     resolution:
       {
         integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
       }
-    dev: true
 
   /react@18.2.0:
     resolution:

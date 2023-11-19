@@ -233,7 +233,7 @@ function ProjectsIcon({ mouseX }: { mouseX: MotionValue }) {
         </TooltipContent>
         <TooltipTrigger asChild>
           <Link
-            href="/"
+            href="/projects"
             className="w-full h-full grid place-content-center relative"
           >
             <div className="relative">
