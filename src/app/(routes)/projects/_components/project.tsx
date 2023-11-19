@@ -67,7 +67,10 @@ export default function Project({ project, index }: Props) {
               duration: 0.8,
               delay: 0 + 0.1 * index,
             }}
-            className="absolute inset-x-0 bg-neutral-300 dark:bg-neutral-800 h-px"
+            className={cn(
+              "absolute inset-x-0 bg-neutral-300 dark:bg-neutral-800 h-px transition-colors duration-500",
+              isHovered && "dark:bg-neutral-700"
+            )}
           />
           <motion.span
             initial={{
