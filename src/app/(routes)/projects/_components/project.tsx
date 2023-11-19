@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ComponentPropsWithoutRef, useState } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 // @ts-expect-error
@@ -11,20 +11,24 @@ import { cn } from "~/lib/utils"
 type Props = {
   project: Project
   index: number
-} & ComponentPropsWithoutRef<"div">
+}
 
-export default function Project({
-  project,
-  index,
-  className,
-  ...props
-}: Props) {
+export default function Project({ project, index }: Props) {
   const [isHovered, setIsHovered] = useState<Boolean>(false)
 
   return (
-    <div
-      className={cn("py-1", className)}
-      {...props}
+    <motion.div
+      className={cn("py-1")}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: index == 0 ? 0 : 0.5,
+        delay: index == 0 ? 0 : 0.1 * index,
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -90,6 +94,6 @@ export default function Project({
           characters="symbols"
         />
       </Link>
-    </div>
+    </motion.div>
   )
 }

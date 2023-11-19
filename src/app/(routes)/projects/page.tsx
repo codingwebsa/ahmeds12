@@ -53,6 +53,24 @@ export default function ProjectsPage() {
       year: 2022,
       link: "https://uiw.tf/",
     },
+    {
+      title: "Flow",
+      description: "Clear your mind through expressive writing",
+      year: 2022,
+      link: "https://flow.rest/",
+    },
+    {
+      title: "inspx",
+      description: "Pixel perfect layout inspection",
+      year: 2022,
+      link: "https://inspx.rauno.xyz/",
+    },
+    {
+      title: "UI Playbook",
+      description: "The documented collection of UI components",
+      year: 2022,
+      link: "https://uiplaybook.dev/",
+    },
   ]
 
   return (

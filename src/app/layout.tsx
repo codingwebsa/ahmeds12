@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "antialiased font-body",
+          "antialiased font-body selection:bg-[#fff9a8] selection:text-black pb-20",
           fontBody.variable,
           fontHeading.variable
         )}

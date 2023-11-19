@@ -46,7 +46,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
   const toc = await getTableOfContents(craft.body.raw)
 
   return (
-    <main className="min-h-[100dvh] selection:bg-[#fff9a8] selection:text-black">
+    <main className="min-h-[100dvh]">
       <div className="flex items-start gap-1">
         {/* sidebar */}
         <div className="flex-1 inset-x-0 sticky top-0 py-28 hidden lg:flex lg:flex-col lg:items-start">
