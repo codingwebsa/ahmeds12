@@ -6,6 +6,8 @@ Project Description
 
 ### Todo
 
+- [ ] tailwind class sort  
+- [ ] General Sans Semibold + General Sans Regular  
 - [ ] craftpage - image should take up full width  
 - [ ] open graph for craft page  
 - [ ] husky  
