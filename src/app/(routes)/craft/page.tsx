@@ -34,7 +34,7 @@ export default function CraftPage() {
       <Masonry
         breakpointCols={masonryColumns}
         className="flex w-auto"
-        columnClassName="mx-1"
+        columnClassName="mx-1 space-y-2"
       >
         {crafts.map((craft, i) => {
           switch (craft.contentType) {

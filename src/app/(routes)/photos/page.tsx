@@ -20,6 +20,8 @@ import Image17 from "~/../public/images/photos/17.jpg"
 import Image18 from "~/../public/images/photos/18.jpg"
 import Image19 from "~/../public/images/photos/19.jpg"
 
+import Masonry from "~/components/masonry"
+
 export default function PhotosPage() {
   var photos = [
     Image1,
@@ -45,7 +47,17 @@ export default function PhotosPage() {
 
   return (
     <main className="px-2">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
+      <Masonry
+        breakpointCols={{
+          default: 4,
+          1024: 3,
+          768: 2,
+          640: 1,
+          300: 1,
+        }}
+        className="flex w-auto"
+        columnClassName="mx-1 space-y-2"
+      >
         {photos.map((photo, i) => {
           return (
             <div key={`photo-${i}`}>
@@ -60,7 +72,7 @@ export default function PhotosPage() {
             </div>
           )
         })}
-      </div>
+      </Masonry>
     </main>
   )
 }
