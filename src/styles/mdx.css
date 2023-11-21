@@ -1,9 +1,9 @@
 [data-rehype-pretty-code-fragment] pre {
-  @apply bg-neutral-100 dark:bg-neutral-900 font-semibold dark:font-normal;
+  @apply bg-neutral-900 font-semibold dark:font-normal;
 }
 
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black dark:text-white;
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-white;
   counter-reset: line;
   box-decoration-break: clone;
 }

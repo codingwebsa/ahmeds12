@@ -1,3 +1,4 @@
+import * as fs from "fs"
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
@@ -61,7 +62,12 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "vitesse-dark",
+          theme: JSON.parse(
+            fs.readFileSync(
+              new URL("../../../src/lib/themes/vesper-dark.json", import.meta.url),
+              "utf-8"
+            )
+          ),
 
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
