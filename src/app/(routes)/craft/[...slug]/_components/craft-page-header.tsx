@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { format, parseISO } from "date-fns"
 
 import { Button } from "~/components/ui/button"
 import {
@@ -27,7 +26,7 @@ export default function CraftPageHeader({
       <div className="flex-1">
         <h1 className="font-semibold text-xl">{title}</h1>
         <p className="text-base dark:text-neutral-400 text-neutral-700">
-          {format(parseISO(date), "LLLL, yyyy")}
+          {date}
         </p>
       </div>
       <TooltipProvider>

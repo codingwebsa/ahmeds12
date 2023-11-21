@@ -1,9 +1,9 @@
 import { ArrowBendUpLeft } from "@phosphor-icons/react/dist/ssr/ArrowBendUpLeft"
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight"
 import { Check } from "@phosphor-icons/react/dist/ssr/Check"
 import { Copy } from "@phosphor-icons/react/dist/ssr/Copy"
 import { HouseLine } from "@phosphor-icons/react/dist/ssr/HouseLine"
 import { Link } from "@phosphor-icons/react/dist/ssr/Link"
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight"
 
 export const Icons = {
   arrowBendUpLeft: ArrowBendUpLeft,
@@ -11,5 +11,5 @@ export const Icons = {
   copy: Copy,
   check: Check,
   houseLine: HouseLine,
-  arrowRight: ArrowRight
+  arrowRight: ArrowRight,
 }

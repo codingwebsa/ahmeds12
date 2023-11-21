@@ -7,7 +7,20 @@ import { Button } from "~/components/ui/button"
 import { Icons } from "~/components/icons"
 import Masonry from "~/components/masonry"
 
+import { allCrafts } from ".contentlayer/generated"
+
 export default function CraftPage() {
+  const crafts = allCrafts.map((craft) => ({
+    title: craft.title,
+    description: craft.description,
+    slug: craft.slugAsParams,
+    date: craft.date,
+    ogImage: craft.ogImage,
+    isPublished: craft.published,
+    contentType: craft.contentType,
+    thumbnailVideo: craft.thumbnailVideo,
+  }))
+
   const masonryColumns = {
     default: 3,
     1024: 3,
@@ -23,23 +36,39 @@ export default function CraftPage() {
         className="flex w-auto"
         columnClassName="mx-1"
       >
-        <Video
-          title="Hello there"
-          date={"October 2023"}
-          src="/images/crafts/demo/nextjs.mp4"
-        />
-        <Craft
-          title="SwiftUI Video Scrubber"
-          date="Sept 2023"
-          imageUrl="/images/crafts/demo/demo.jpg"
-          slug=""
-        />
-        <Prototype
-          title="Hello there"
-          date={"November 2023"}
-          videoUrl="/images/crafts/demo/mercury.mp4"
-          slug=""
-        />
+        {crafts.map((craft, i) => {
+          switch (craft.contentType) {
+            case "POST":
+              return (
+                <Craft
+                  key={`craft-${i}`}
+                  date={craft.date}
+                  // TODO: fill in the null things
+                  imageUrl={craft.ogImage ?? ""}
+                  slug={craft.slug}
+                  title={craft.title}
+                />
+              )
+            case "PROTOTYPE":
+              return (
+                <Prototype
+                  key={`craft-${i}`}
+                  date={craft.date}
+                  slug={craft.slug}
+                  title={craft.title}
+                  videoUrl={craft.thumbnailVideo ?? ""}
+                />
+              )
+            case "VIDEO":
+              return (
+                <Video
+                  title={craft.title}
+                  src={craft.thumbnailVideo ?? "Hello World"}
+                  description={craft.description ?? "By Ahmed"}
+                />
+              )
+          }
+        })}
       </Masonry>
     </div>
   )
@@ -48,11 +77,11 @@ export default function CraftPage() {
 function Video({
   title,
   src,
-  date,
+  description,
 }: {
   title: string
   src: string
-  date: string
+  description: string
 }) {
   return (
     <div
@@ -74,7 +103,7 @@ function Video({
       >
         <div className="flex justify-between w-full px-3 py-3 text-sm mt-auto z-10">
           <p className="line-clamp-1 text-white">{title}</p>
-          <p className="text-neutral-300">{date}</p>
+          <p className="text-neutral-300">{description}</p>
         </div>
       </div>
     </div>
@@ -95,7 +124,7 @@ function Craft({
   return (
     <Link
       href={`/craft/${slug}`}
-      className="border rounded-xl p-1 flex flex-col w-full bg-zinc-900"
+      className="border rounded-xl p-1 flex flex-col w-full bg-zinc-50 dark:bg-zinc-900"
     >
       <div
         className={cn(
@@ -135,7 +164,7 @@ function Prototype({
   return (
     <Link
       href={`/craft/${slug}`}
-      className="border rounded-xl p-1 flex flex-col w-full bg-zinc-900"
+      className="border rounded-xl p-1 flex flex-col w-full bg-zinc-50 dark:bg-zinc-900"
     >
       <div
         className={cn(

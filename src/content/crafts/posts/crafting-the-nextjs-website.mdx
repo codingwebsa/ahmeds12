@@ -1,0 +1,215 @@
+---
+title: Crafting the Next.js Website
+description: Crafting the Next.js Website
+contentType: POST
+ogImage: /assets/crafting-the-nextjs-website/og-nextjs.webp
+date: November 2023
+---
+
+import AnimatedPath from "~/components/crafts/post/crafting-the-nextjs-website/animated-path"
+import DuplicatePaths from "~/components/crafts/post/crafting-the-nextjs-website/duplicate-paths"
+import GridLine from "~/components/crafts/post/crafting-the-nextjs-website/gridline"
+import Path from "~/components/crafts/post/crafting-the-nextjs-website/path"
+import VisiblePath from "~/components/crafts/post/crafting-the-nextjs-website/visible-path"
+import VisualizePath from "~/components/crafts/post/crafting-the-nextjs-website/visualize-path"
+
+NEXTJS, I found the design to be a breath of fresh air: no swanky mesh gradients, obnoxious artifical shines, or overuse of gimmicks. A pure masterclass in subtle craft where the intricate details almost fade into the background.
+
+In no particular order, we'll break down a couple of implementation details, some of which may be less trivial than others, but all of them were stimulating to build.
+
+## Grid Lines
+
+One of the first details you'll notice on the hero are container grid lines. They are absolutely positioned pseudo elements and are flexible based on the inner content and different screen sizes.
+
+        <Video src="/assets/crafting-the-nextjs-website/nextjs-website.mp4" />
+
+I borrowed a technique from [Stripe](https://stripe.com) for these. By using a repeating linear gradient to create a dotted line we can control the dots more precisely compared to a dotted `border` property. We can also fade out the edges on the same element with a mask.
+
+    <GridLine />
+
+```css
+.gridLine {
+  --background: #ffffff;
+  --color: rgba(0, 0, 0, 0.5);
+  --height: 1px;
+  --width: 5px;
+  --fade-stop: 90%;
+  /* Bleed in or out from the container */
+  --offset: -100px;
+
+  position: absolute;
+  width: calc(100% + var(--offset));
+  height: var(--height);
+  left: calc(var(--offset) / 2 * -1);
+
+  background: linear-gradient(
+    to right,
+    var(--color),
+    var(--color) 50%,
+    transparent 0,
+    transparent
+  );
+  background-size: var(--width) var(--height);
+
+  /* Fade out the edges */
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(
+      to left,
+      var(--background) var(--fade-stop),
+      transparent
+    ), linear-gradient(
+      to right,
+      var(--background) var(--fade-stop),
+      transparent
+    ), linear-gradient(black, black);
+}
+```
+
+## Fluid Typography
+
+On the hero, the title and subtitle adjust much more fluidly compared to fixed font size values at specific breakpoints.
+
+    <Video src="/assets/crafting-the-nextjs-website/nextjs-fluid-typography-2.mp4" />
+
+I used to always adjust typography at manual breakpoints. Until now, I never tried using the CSS `clamp` function. It helps to responsively adjust any property between a minimum and maximum value:
+
+```css
+h1 {
+  font-size: clamp(48px, 5vw, 76px);
+}
+```
+
+## Gradient Tracing
+
+Another animation on the website is a bunch of connecting lines forming into a CPU in the center. It's not exactly the most straightforward thing to figure out, at least for me. I tried using [CSS Motion Path](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Motion_Path) with promising results but it didn't quite work when the path was curved.
+
+    <Video src="/assets/crafting-the-nextjs-website/nextjs-website-2.mp4" />
+
+I landed on animating the `x1`, `x2` and `y1`, `y2` values on a [\<linearGradient /\>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient) element. The gradient is then used as a stroke on a `<path />` element.
+
+Let's try breaking down an example. There are two duplicate paths on top of each other:
+<DuplicatePaths />
+
+```html
+<svg width="317" height="80" viewBox="0 0 317 80" fill="none">
+  <path
+    d="M316 0V10C316 12.2091 314.209 14 312 14H5C2.79086 14 1 15.7909 1 18V80"
+    stroke="black"
+    stroke-opacity="0.2"
+  />
+  <path
+    d="M316 0V10C316 12.2091 314.209 14 312 14H5C2.79086 14 1 15.7909 1 18V80"
+    stroke="url(#pulse)"
+    stroke-linecap="round"
+    stroke-width="2"
+  />
+  <defs>
+    <linearGradient
+      id="pulse"
+      gradientUnits="userSpaceOnUse"
+      x1="0"
+      x2="0"
+      y1="30"
+      y2="60"
+    >
+      <stop stop-color="#2EB9DF" stop-opacity="0" />
+      <stop stop-color="#2EB9DF" />
+      <stop offset="1" stop-color="#9E00FF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>
+```
+
+The gradient has a fade into the primary color near the very top to create a partial gradient on the whole path. Followed by a fully opaque gradient stop, and then fade out again to the bottom. This is what the gradient definition looks like in Figma:
+
+<Image src="/assets/crafting-the-nextjs-website/three-gradients.webp" />{" "}
+
+We can set the `y1` value to the height of the `<svg>` node and move the starting point to the bottom edge. And we want to make the `y2` twice the height so the tail of the gradient is offset. This way the gradient will gracefully reveal itself once animated.
+
+<Path />
+
+```jsx {6,7}
+<linearGradient
+  id="pulse"
+  gradientUnits="userSpaceOnUse"
+  x1="0"
+  x2="0"
+  y1={height}
+  y2={height * 2}
+>
+  {...}
+</linearGradient>
+```
+
+You can't see anything, but the head of the gradient is now exactly at the starting point. To move it upwards by 40px, we can just adjust the `y1` and `y2` values:
+
+<VisiblePath />
+
+```js
+y1={height - 40}
+y2={height * 2 - 80}
+```
+
+Next, I used React and `framer-motion` to animate the gradient coordinates. Any UI framework with a motion library that can interpolate between two values would work.
+
+Feel free to play around with the `animate` values. This formula is not generic and different variations may need some fine-tuning by hand to nail the velocity and timing.
+
+<AnimatedPath />
+
+To understand how the gradient is moving, here's a lil helpful visualization, courtesy of Paco:
+
+<VisualizePath />
+
+```tsx
+;() => {
+  const width = 317
+  const height = 80
+  const path =
+    "M316 0V10C316 12.2091 314.209 14 312 14H5C2.79086 14 1 15.7909 1 18V80"
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      fill="none"
+    >
+      <path d={path} stroke="black" strokeOpacity="0.2" />
+      <rect
+        d={path}
+        x={0}
+        y={0}
+        width={width}
+        height={height}
+        fill="url(#pulse-4)"
+      />
+      <path
+        d={path}
+        stroke="url(#pulse-4)"
+        strokeLinecap="round"
+        strokeWidth="2"
+      />
+      <defs>
+        <motion.linearGradient
+          animate={{
+            x1: [0, width * 2],
+            x2: [0, width],
+            y1: [height, height / 2],
+            y2: [height * 2, height],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+          id="pulse-4"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#2EB9DF" stopOpacity="0" />
+          <stop stopColor="#2EB9DF" />
+          <stop offset="1" stopColor="#9E00FF" stopOpacity="0" />
+        </motion.linearGradient>
+      </defs>
+    </svg>
+  )
+}
+```

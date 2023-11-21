@@ -12,7 +12,7 @@ const computedFields = {
   },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(2).join("/"),
   },
 }
 
@@ -25,6 +25,17 @@ export const Craft = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    contentType: {
+      type: "enum",
+      options: ["POST", "PROTOTYPE", "VIDEO"],
+      default: "POST",
+    },
+    ogImage: {
+      type: "string",
+    },
+    thumbnailVideo: {
+      type: "string",
+    },
     description: {
       type: "string",
     },
@@ -33,7 +44,7 @@ export const Craft = defineDocumentType(() => ({
       default: true,
     },
     date: {
-      type: "date",
+      type: "string",
       required: true,
     },
   },

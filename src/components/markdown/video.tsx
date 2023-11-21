@@ -29,13 +29,6 @@ export default function MDVideo({ src, className, ...props }: Props) {
     }
   }
 
-  // useEffect(() => {
-  //   const video = videoRef.current
-  //   if (video) {
-  //     setVideoDuration(video.duration)
-  //   }
-  // }, [])
-
   useEffect(() => {
     if (isPaused) return
     const currentTime = videoRef.current?.currentTime
@@ -71,7 +64,7 @@ export default function MDVideo({ src, className, ...props }: Props) {
       </div>
       <video
         ref={videoRef}
-        className={cn("w-full h-auto rounded-xl border my-2", className)}
+        className={cn("w-full h-auto rounded-xl border my-3", className)}
         loop
         autoPlay
         muted

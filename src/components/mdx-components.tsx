@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import dynamic from "next/dynamic"
 import type { ClassValue } from "clsx"
@@ -5,11 +7,12 @@ import { useMDXComponent } from "next-contentlayer/hooks"
 
 import { cn } from "~/lib/utils"
 import MDImage from "~/components/markdown/image"
+
 import { Skeleton } from "./ui/skeleton"
 
-const MDVideo = dynamic(() => import("~/components/markdown/video",), {
+const MDVideo = dynamic(() => import("~/components/markdown/video"), {
   ssr: false,
-  loading: () => <Skeleton className="w-full aspect-video h-auto" />
+  loading: () => <Skeleton className="w-full aspect-video h-auto" />,
 })
 
 const components = {
@@ -25,7 +28,7 @@ const components = {
   h2: ({ className, ...props }: { className: ClassValue }) => (
     <h2
       className={cn(
-        "mt-8 mb-4 scroll-m-20 text-lg font-semibold tracking-tight first:mt-0",
+        "mt-6 mb-0 scroll-m-20 text-lg font-semibold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -34,7 +37,7 @@ const components = {
   h3: ({ className, ...props }: { className: ClassValue }) => (
     <h3
       className={cn(
-        "mt-7 scroll-m-20 text-sm font-semibold tracking-tight",
+        "mt-7 scroll-m-20 text-[1.2rem] font-semibold tracking-tight",
         className
       )}
       {...props}
@@ -75,7 +78,7 @@ const components = {
   ),
   p: ({ className, ...props }: { className: ClassValue }) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:my-2", className)}
+      className={cn("leading-7 [&:not(:first-child)]:my-1", className)}
       {...props}
     />
   ),
@@ -142,15 +145,13 @@ const components = {
     />
   ),
   code: ({ className, ...props }: { className: ClassValue }) => (
-    <div className="relative">
-      <code
-        className={cn(
-          "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
-          className
-        )}
-        {...props}
-      />
-    </div>
+    <code
+      className={cn(
+        "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        className
+      )}
+      {...props}
+    />
   ),
   Image: MDImage,
   Video: MDVideo,

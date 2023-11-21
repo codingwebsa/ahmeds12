@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { allCrafts } from "contentlayer/generated"
 
@@ -6,11 +7,10 @@ import { Mdx } from "~/components/mdx-components"
 
 import "~/styles/mdx.css"
 
-import Link from "next/link"
-
 import { Icons } from "~/components/icons"
 
 import CraftPageHeader from "./_components/craft-page-header"
+import Topics from "./_components/topics"
 
 interface CraftPageProps {
   params: {
@@ -44,10 +44,18 @@ export default async function CraftPage({ params }: CraftPageProps) {
   }
 
   const toc = await getTableOfContents(craft.body.raw)
+  // const craftHeadingLinks = toc.items
+  //   ? toc.items.flatMap((item) =>
+  //       [item.url, item?.items?.map((item) => item.url)]
+  //         .flat()
+  //         .filter(Boolean)
+  //         .map((id) => id?.split("#")[1])
+  //     )
+  //   : []
 
   return (
-    <main className="min-h-[100dvh]">
-      <div className="flex items-start gap-1">
+    <main className="min-h-[100dvh] scroll-smooth">
+      <div className="flex items-start gap-1 mx-auto max-w-[1450px]">
         {/* sidebar */}
         <div className="flex-1 inset-x-0 sticky top-0 py-28 hidden lg:flex lg:flex-col lg:items-start">
           <div className="mx-auto px-4 xl:px-10">
@@ -58,17 +66,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
               <Icons.arrowBendUpLeft className="h-4 w-4" />
               <p>Craft</p>
             </Link>
-            <aside className="mt-6 flex flex-col gap-2">
-              {toc.items?.[0].items?.map((item, i) => (
-                <Link
-                  className="text-sm dark:text-neutral-400 text-neutral-700 line-clamp-2 [text-wrap:balance]"
-                  href={item.url}
-                  key={`toc-${i}`}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </aside>
+            <Topics items={toc} />
           </div>
         </div>
         <section className="flex-[2] lg:px-2 py-28 px-4 sm:px-10 md:px-16">
