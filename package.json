@@ -10,7 +10,11 @@
     "preview": "next build && next start",
     "format:write": "prettier ./ --write \"**.{ts,tsx,md,mdx,js,jsx,json,yaml,cjs,mjs}\" --cache",
     "format:check": "prettier ./ --check \"**.{ts,tsx,md,mdx,js,jsx,json,yaml,cjs,mjs}\" --cache",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "check-types": "tsc --pretty --noEmit",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.14",
@@ -55,6 +59,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "husky": "^8.0.0"
   }
 }
