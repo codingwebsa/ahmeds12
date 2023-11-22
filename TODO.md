@@ -6,19 +6,21 @@ Project Description
 
 ### Todo
 
-- [ ] collapse codeblock
-- [ ] tailwind class sort
-- [ ] General Sans Semibold + General Sans Regular
-- [ ] open graph for craft page
-- [ ] husky
-- [ ] video player on play while in view
-- [ ] SEO
+- [ ] collapse codeblock  
+- [ ] General Sans Semibold + General Sans Regular  
+- [ ] open graph for craft page  
+- [ ] video player on play while in view  
+- [ ] SEO  
 
 ### In Progress
 
+
 ### Done ✓
 
-- [x] dock active indicator
-- [x] footer
-- [x] craftpage - image should take up full width
-- [x] customize codeblock
+- [x] husky  
+- [x] tailwind class sort  
+- [x] dock active indicator  
+- [x] footer  
+- [x] craftpage - image should take up full width  
+- [x] customize codeblock  
+
