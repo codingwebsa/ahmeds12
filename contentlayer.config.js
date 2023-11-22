@@ -13,28 +13,20 @@ const computedFields = {
   },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(2).join("/"),
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
 }
 
-export const Craft = defineDocumentType(() => ({
-  name: "Craft",
-  filePathPattern: `crafts/**/*.mdx`,
+export const Post = defineDocumentType(() => ({
+  name: "Post",
+  filePathPattern: `crafts/posts/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
       type: "string",
       required: true,
     },
-    contentType: {
-      type: "enum",
-      options: ["POST", "PROTOTYPE", "VIDEO"],
-      default: "POST",
-    },
-    ogImage: {
-      type: "string",
-    },
-    thumbnailVideo: {
+    image: {
       type: "string",
     },
     description: {
@@ -45,7 +37,73 @@ export const Craft = defineDocumentType(() => ({
       default: true,
     },
     date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields,
+}))
+export const Prototype = defineDocumentType(() => ({
+  name: "Prototype",
+  filePathPattern: `crafts/prototypes/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
       type: "string",
+      required: true,
+    },
+    ogImage: {
+      type: "string",
+    },
+    video: {
+      type: "string",
+      required: true,
+    },
+    poster: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields,
+}))
+export const Video = defineDocumentType(() => ({
+  name: "Video",
+  filePathPattern: `crafts/videos/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    video: {
+      type: "string",
+      required: true,
+    },
+    poster: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    date: {
+      type: "date",
       required: true,
     },
   },
@@ -54,7 +112,7 @@ export const Craft = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./src/content",
-  documentTypes: [Craft],
+  documentTypes: [Post, Prototype, Video],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

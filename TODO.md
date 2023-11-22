@@ -6,6 +6,8 @@ Project Description
 
 ### Todo
 
+- [ ] add comments to functions
+- [ ] vertualization in /photos
 - [ ] collapse codeblock
 - [ ] General Sans Semibold + General Sans Regular
 - [ ] open graph for craft page

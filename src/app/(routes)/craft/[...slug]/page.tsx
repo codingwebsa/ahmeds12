@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { allCrafts } from "contentlayer/generated"
+import { allPosts, allPrototypes } from "contentlayer/generated"
 
 import { getTableOfContents } from "~/lib/toc"
 import { Mdx } from "~/components/mdx-components"
@@ -12,6 +12,8 @@ import { Icons } from "~/components/icons"
 import CraftPageHeader from "./_components/craft-page-header"
 import Footer from "./_components/footer"
 import Topics from "./_components/topics"
+
+const allCrafts = [...allPosts, ...allPrototypes]
 
 interface CraftPageProps {
   params: {
