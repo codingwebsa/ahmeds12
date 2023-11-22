@@ -8,10 +8,8 @@ Project Description
 
 - [ ] collapse codeblock
 - [ ] footer
-- [ ] customize codeblock
 - [ ] tailwind class sort
 - [ ] General Sans Semibold + General Sans Regular
-- [ ] craftpage - image should take up full width
 - [ ] open graph for craft page
 - [ ] husky
 - [ ] video player on play while in view
@@ -20,3 +18,6 @@ Project Description
 ### In Progress
 
 ### Done ✓
+
+- [x] craftpage - image should take up full width
+- [x] customize codeblock

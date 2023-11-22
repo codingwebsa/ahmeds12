@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="max-w-screen-md mx-auto py-32">
-      <h1 className="text-xl font-semibold mb-2">
+    <main className="mx-auto max-w-screen-md py-32">
+      <h1 className="mb-2 text-xl font-semibold">
         Invisible Details of Interaction Design
       </h1>
       <p className="">

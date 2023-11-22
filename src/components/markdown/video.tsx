@@ -54,7 +54,7 @@ export default function MDVideo({ src, className, ...props }: Props) {
 
   return (
     <div className="relative">
-      <div className="absolute top-0 right-0 m-3 z-10">
+      <div className="absolute right-0 top-0 z-10 m-3">
         <VideoPlayerControls
           progress={videoProgress}
           isPaused={isPaused}
@@ -64,7 +64,7 @@ export default function MDVideo({ src, className, ...props }: Props) {
       </div>
       <video
         ref={videoRef}
-        className={cn("w-full h-auto rounded-xl border my-3", className)}
+        className={cn("my-3 h-auto w-full rounded-xl border", className)}
         loop
         autoPlay
         muted

@@ -12,7 +12,7 @@ import { Skeleton } from "./ui/skeleton"
 
 const MDVideo = dynamic(() => import("~/components/markdown/video"), {
   ssr: false,
-  loading: () => <Skeleton className="w-full aspect-video h-auto" />,
+  loading: () => <Skeleton className="aspect-video h-auto w-full" />,
 })
 
 const components = {
@@ -28,7 +28,7 @@ const components = {
   h2: ({ className, ...props }: { className: ClassValue }) => (
     <h2
       className={cn(
-        "mt-6 mb-0 scroll-m-20 text-lg font-semibold tracking-tight first:mt-0",
+        "mb-0 mt-6 scroll-m-20 text-lg font-semibold tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -120,7 +120,7 @@ const components = {
   th: ({ className, ...props }: { className: ClassValue }) => (
     <th
       className={cn(
-        "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right bg-muted text-muted-foreground",
+        "border bg-muted px-4 py-2 text-left font-bold text-muted-foreground [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}

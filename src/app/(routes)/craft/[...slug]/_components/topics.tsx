@@ -35,7 +35,7 @@ export default function Topics({ items: toc }: Props): React.JSX.Element {
 
         return (
           <Link
-            className="text-sm dark:text-neutral-400 text-neutral-700 line-clamp-2 [text-wrap:balance] hover:text-neutral-950 transition-colors hover:dark:text-neutral-200"
+            className="line-clamp-2 text-sm text-neutral-700 transition-colors [text-wrap:balance] hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-200"
             href={item.url}
             key={`toc-${i}`}
           >

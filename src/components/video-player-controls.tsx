@@ -22,7 +22,7 @@ const VideoPlayerControls: React.FC<VideoPlayerControlsProps> = ({
   const dashOffset = dashArray * (1 - progress)
 
   return (
-    <div className="relative rounded-full flex justify-center items-center">
+    <div className="relative flex items-center justify-center rounded-full">
       <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
         <circle
           cx={center}
@@ -46,14 +46,14 @@ const VideoPlayerControls: React.FC<VideoPlayerControlsProps> = ({
       </svg>
       <div className="absolute">
         <button
-          className="group cursor-pointer flex justify-center items-center"
+          className="group flex cursor-pointer items-center justify-center"
           onClick={onPlayPause}
         >
-          <div className="fill-white group-hover:fill-[#aaaaaa] transition-colors duration-200 ease-in-out">
+          <div className="fill-white transition-colors duration-200 ease-in-out group-hover:fill-[#aaaaaa]">
             {isPaused ? (
-              <Play className="w-4 h-4 text-white" weight="fill" />
+              <Play className="h-4 w-4 text-white" weight="fill" />
             ) : (
-              <Pause className="w-4 h-4 text-white" weight="fill" />
+              <Pause className="h-4 w-4 text-white" weight="fill" />
             )}
           </div>
         </button>

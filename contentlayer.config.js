@@ -64,7 +64,10 @@ export default makeSource({
         {
           theme: JSON.parse(
             fs.readFileSync(
-              new URL("../../../src/lib/themes/vesper-dark.json", import.meta.url),
+              new URL(
+                "../../../src/lib/themes/vesper-dark.json",
+                import.meta.url
+              ),
               "utf-8"
             )
           ),

@@ -28,17 +28,17 @@ export default function Dock() {
     <motion.div
       onMouseMove={(e: any) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="mx-auto border-[hsl(0_0%_0%/0.077)] dark:border-[hsl(0_0%_100%/0.077)] flex h-14 items-end gap-2 rounded-full dark:bg-[hsl(0,0%,8.5%)] bg-[hsl(0,0%,95%)] border px-2 pb-1.5"
+      className="mx-auto flex h-14 items-end gap-2 rounded-full border border-[hsl(0_0%_0%/0.077)] bg-[hsl(0,0%,95%)] px-2 pb-1.5 dark:border-[hsl(0_0%_100%/0.077)] dark:bg-[hsl(0,0%,8.5%)]"
     >
       <TooltipProvider delayDuration={0}>
         <HomeIcon mouseX={mouseX} />
         <CraftIcon mouseX={mouseX} />
         <ProjectsIcon mouseX={mouseX} />
         <PhotosIcon mouseX={mouseX} />
-        <hr className="h-9 w-px bg-gradient-to-b from-transparent dark:via-white/20 via-black/20 to-transparent" />
+        <hr className="h-9 w-px bg-gradient-to-b from-transparent via-black/20 to-transparent dark:via-white/20" />
         <TwitterIcon mouseX={mouseX} />
         <EmailIcon mouseX={mouseX} />
-        <hr className="h-9 w-px bg-gradient-to-b from-transparent dark:via-white/20 via-black/20 to-transparent" />
+        <hr className="h-9 w-px bg-gradient-to-b from-transparent via-black/20 to-transparent dark:via-white/20" />
         <ToggleTheme mouseX={mouseX} />
       </TooltipProvider>
     </motion.div>
@@ -75,7 +75,7 @@ function HomeIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -86,10 +86,10 @@ function HomeIcon({ mouseX }: { mouseX: MotionValue }) {
         <TooltipTrigger asChild>
           <Link
             href="/"
-            className="w-full h-full grid place-content-center relative"
+            className="relative grid h-full w-full place-content-center"
           >
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}
@@ -149,7 +149,7 @@ function CraftIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -160,10 +160,10 @@ function CraftIcon({ mouseX }: { mouseX: MotionValue }) {
         <TooltipTrigger asChild>
           <Link
             href="/craft"
-            className="w-full h-full grid place-content-center relative"
+            className="relative grid h-full w-full place-content-center"
           >
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}
@@ -223,7 +223,7 @@ function ProjectsIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -234,10 +234,10 @@ function ProjectsIcon({ mouseX }: { mouseX: MotionValue }) {
         <TooltipTrigger asChild>
           <Link
             href="/projects"
-            className="w-full h-full grid place-content-center relative"
+            className="relative grid h-full w-full place-content-center"
           >
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}
@@ -295,7 +295,7 @@ function PhotosIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -306,10 +306,10 @@ function PhotosIcon({ mouseX }: { mouseX: MotionValue }) {
         <TooltipTrigger asChild>
           <Link
             href="/photos"
-            className="w-full h-full grid place-content-center relative"
+            className="relative grid h-full w-full place-content-center"
           >
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}
@@ -369,7 +369,7 @@ function TwitterIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -381,10 +381,10 @@ function TwitterIcon({ mouseX }: { mouseX: MotionValue }) {
           <Link
             href={personalConfig.socialLinks.twitter}
             target="_blank"
-            className="w-full h-full grid place-content-center relative"
+            className="relative grid h-full w-full place-content-center"
           >
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}
@@ -438,7 +438,7 @@ function EmailIcon({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -449,10 +449,10 @@ function EmailIcon({ mouseX }: { mouseX: MotionValue }) {
         <TooltipTrigger asChild>
           <Link
             href={`mailto:${personalConfig.email}`}
-            className="w-full h-full grid place-content-center relative"
+            className="relative grid h-full w-full place-content-center"
           >
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}
@@ -514,7 +514,7 @@ function ToggleTheme({ mouseX }: { mouseX: MotionValue }) {
         ref={ref}
         style={{ width }}
         className={cn(
-          "aspect-square dark:text-[hsl(0,0%,49.4%)] text-[hsl(0,0%,9.4%)] w-10 rounded-full bg-gradient-to-tr dark:from-[hsl(0,0%,11%)] from-[hsl(0,0%,80%)] dark:via-[hsl(0,0%,13.6%)] via-[hsl(0,0%,90%)] [background-size:200%_100%;] dark:to-[hsl(0,0%,13.6%)] to-[hsl(0,0%,90%)]",
+          "aspect-square w-10 rounded-full bg-gradient-to-tr from-[hsl(0,0%,80%)] via-[hsl(0,0%,90%)] to-[hsl(0,0%,90%)] text-[hsl(0,0%,9.4%)] [background-size:200%_100%;] dark:from-[hsl(0,0%,11%)] dark:via-[hsl(0,0%,13.6%)] dark:to-[hsl(0,0%,13.6%)] dark:text-[hsl(0,0%,49.4%)]",
           isBouncing && "animate-bounce-icon"
         )}
         onClick={handleClick}
@@ -523,9 +523,9 @@ function ToggleTheme({ mouseX }: { mouseX: MotionValue }) {
           <p>Toggle theme</p>
         </TooltipContent>
         <TooltipTrigger asChild>
-          <button className="w-full h-full grid place-content-center relative">
+          <button className="relative grid h-full w-full place-content-center">
             <div className="relative">
-              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] opacity-80 -top-px w-full h-hull rounded-full" />
+              <div className="bg-[linear-gradient(90deg,rgba(0, 0, 0, 0),hsl(0,0%,15.8) 20%,hsl(0,0%,24.3)_67.19%,rgba(0, 0, 0, 0))] h-hull -top-px w-full rounded-full opacity-80" />
               <motion.svg
                 aria-hidden="true"
                 width={widthIcon}

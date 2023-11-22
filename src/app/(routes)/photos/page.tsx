@@ -67,7 +67,7 @@ export default function PhotosPage() {
                 placeholder="blur"
                 quality={50}
                 width={700}
-                className="min-w-full h-auto"
+                className="h-auto min-w-full"
               />
             </div>
           )

@@ -12,7 +12,7 @@ export default function CodeblockPreview({
   return (
     <div
       className={cn(
-        "border dark:bg-[#1c1c1c] rounded-lg min-h-[300px] my-5 flex items-center justify-center",
+        "my-5 flex min-h-[300px] items-center justify-center rounded-lg border dark:bg-[#1c1c1c]",
         className
       )}
       {...props}

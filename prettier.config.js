@@ -9,7 +9,10 @@ module.exports = {
   tabWidth: 2,
   trailingComma: "es5",
   // Since prettier 3.0, manually specifying plugins is required
-  plugins: ["@ianvs/prettier-plugin-sort-imports"],
+  plugins: [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+  ],
   // This plugin's options
   importOrder: [
     "^(react/(.*)$)|^(react$)",
@@ -21,6 +24,7 @@ module.exports = {
     "^~/config/(.*)$",
     "^~/lib/(.*)$",
     "^~/hooks/(.*)$",
+    "^~/_components/(.*)$",
     "^~/components/ui/(.*)$",
     "^~/components/(.*)$",
     "^~/styles/(.*)$",

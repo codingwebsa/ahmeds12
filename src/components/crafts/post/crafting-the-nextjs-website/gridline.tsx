@@ -20,7 +20,7 @@ export default function gridLine() {
             } as CSSProperties
           }
           className={cn(
-            "absolute w-[calc(100%_+_var(--offset))] h-[var(--height)] left-[calc(var(--offset)/2_*_-1)] [background:linear-gradient(to_right,var(--color),var(--color)_50%,transparent_0%,transparent)] ![background-size:var(--width)_var(--height)] ![mask-composite:exclude] [-webkit-mask:linear-gradient(to_left,var(--bg)_var(--fade-stop),transparent),linear-gradient(to_right,var(--bg)_var(--fade-stop),transparent),linear-gradient(black,black)]"
+            "absolute left-[calc(var(--offset)/2_*_-1)] h-[var(--height)] w-[calc(100%_+_var(--offset))] ![background-size:var(--width)_var(--height)] ![mask-composite:exclude] [-webkit-mask:linear-gradient(to_left,var(--bg)_var(--fade-stop),transparent),linear-gradient(to_right,var(--bg)_var(--fade-stop),transparent),linear-gradient(black,black)] [background:linear-gradient(to_right,var(--color),var(--color)_50%,transparent_0%,transparent)]"
           )}
         />
       </div>

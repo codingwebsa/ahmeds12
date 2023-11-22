@@ -11,7 +11,7 @@ export default function MDImage({ className, ...props }: Props) {
   return (
     // eslint-disable-next-line jsx-a11y/alt-text
     <Image
-      className={cn("rounded-xl border my-4", className)}
+      className={cn("my-4 rounded-xl border", className)}
       width={1080}
       height={720}
       {...props}

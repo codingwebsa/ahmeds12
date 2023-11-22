@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "antialiased font-body selection:bg-[#fff9a8] selection:text-black pb-20",
+          "pb-20 font-body antialiased selection:bg-[#fff9a8] selection:text-black",
           fontBody.variable,
           fontHeading.variable
         )}
@@ -34,7 +34,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <div className="max-w-fit mx-auto fixed bottom-0 left-1/2 -translate-x-1/2 mb-4 z-30">
+          <div className="fixed bottom-0 left-1/2 z-30 mx-auto mb-4 max-w-fit -translate-x-1/2">
             <Dock />
           </div>
         </ThemeProvider>

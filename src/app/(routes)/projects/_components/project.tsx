@@ -35,11 +35,11 @@ export default function Project({ project, index }: Props) {
       <Link
         href={project.link}
         target="_blank"
-        className="flex items-center text-sm px-4 py-4 rounded-lg relative"
+        className="relative flex items-center rounded-lg px-4 py-4 text-sm"
       >
         {isHovered && (
           <motion.div
-            className="inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-lg absolute -z-10"
+            className="absolute inset-0 -z-10 rounded-lg bg-neutral-100 dark:bg-neutral-800"
             layoutId="bg-hover-div"
           />
         )}
@@ -50,12 +50,12 @@ export default function Project({ project, index }: Props) {
           changes={5}
         />
         <HackerText
-          className="ml-2 text-stone-500 dark:text-neutral-400 font-normal"
+          className="ml-2 font-normal text-stone-500 dark:text-neutral-400"
           text={project.description}
           speed={5}
           changes={5}
         />
-        <div className="flex-1 relative mx-2">
+        <div className="relative mx-2 flex-1">
           <motion.span
             initial={{
               width: "0%",
@@ -68,7 +68,7 @@ export default function Project({ project, index }: Props) {
               delay: 0 + 0.1 * index,
             }}
             className={cn(
-              "absolute inset-x-0 bg-neutral-300 dark:bg-neutral-800 h-px transition-colors duration-500",
+              "absolute inset-x-0 h-px bg-neutral-300 transition-colors duration-500 dark:bg-neutral-800",
               isHovered && "dark:bg-neutral-700"
             )}
           />
@@ -86,7 +86,7 @@ export default function Project({ project, index }: Props) {
               delay: 0.1 + 0.1 * index,
               ease: "easeOut",
             }}
-            className="absolute inset-x-0 bg-neutral-800 dark:bg-neutral-500 h-px"
+            className="absolute inset-x-0 h-px bg-neutral-800 dark:bg-neutral-500"
           />
         </div>
         <HackerText

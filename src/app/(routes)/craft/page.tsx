@@ -85,10 +85,10 @@ function Video({
 }) {
   return (
     <div
-      className={cn("w-full rounded-lg relative p-0 border overflow-hidden")}
+      className={cn("relative w-full overflow-hidden rounded-lg border p-0")}
     >
       <video
-        className="w-full h-auto rounded-lg brightness-90"
+        className="h-auto w-full rounded-lg brightness-90"
         loop
         autoPlay
         playsInline
@@ -97,11 +97,11 @@ function Video({
       </video>
       <div
         className={cn(
-          "absolute bottom-0 inset-0 flex items-center",
-          "before:content-[''] before:absolute before:h-52 before:w-full before:bg-[linear-gradient(to_top,rgba(0,0,0,0.9),50%,rgba(0,0,0,0))] before:-bottom-16 before:inset-x-0 before:pointer-events-none"
+          "absolute inset-0 bottom-0 flex items-center",
+          "before:pointer-events-none before:absolute before:inset-x-0 before:-bottom-16 before:h-52 before:w-full before:bg-[linear-gradient(to_top,rgba(0,0,0,0.9),50%,rgba(0,0,0,0))] before:content-['']"
         )}
       >
-        <div className="flex justify-between w-full px-3 py-3 text-sm mt-auto z-10">
+        <div className="z-10 mt-auto flex w-full justify-between px-3 py-3 text-sm">
           <p className="line-clamp-1 text-white">{title}</p>
           <p className="text-neutral-300">{description}</p>
         </div>
@@ -124,27 +124,27 @@ function Craft({
   return (
     <Link
       href={`/craft/${slug}`}
-      className="border rounded-xl p-1 flex flex-col w-full bg-zinc-50 dark:bg-zinc-900"
+      className="flex w-full flex-col rounded-xl border bg-zinc-50 p-1 dark:bg-zinc-900"
     >
       <div
         className={cn(
           "relative overflow-hidden rounded-lg",
-          "before:content-[''] before:absolute before:h-52 before:w-full before:bg-[linear-gradient(to_top,rgba(0,0,0,0.9),50%,rgba(0,0,0,0))] before:-bottom-16 before:inset-x-0 before:pointer-events-none"
+          "before:pointer-events-none before:absolute before:inset-x-0 before:-bottom-16 before:h-52 before:w-full before:bg-[linear-gradient(to_top,rgba(0,0,0,0.9),50%,rgba(0,0,0,0))] before:content-['']"
         )}
       >
         <Image
           src={imageUrl}
-          className="w-full min-w-full h-auto rounded-lg"
+          className="h-auto w-full min-w-full rounded-lg"
           width={1920}
           height={1486}
           alt=""
         />
-        <div className="flex justify-between w-full px-3 py-3 text-sm mt-auto z-10 absolute inset-x-0 bottom-0">
+        <div className="absolute inset-x-0 bottom-0 z-10 mt-auto flex w-full justify-between px-3 py-3 text-sm">
           <p className="line-clamp-1 text-white">{title}</p>
           <p className="text-neutral-300">{date}</p>
         </div>
       </div>
-      <Button className="flex items-center gap-2 mt-1" variant="secondary">
+      <Button className="mt-1 flex items-center gap-2" variant="secondary">
         Read Post <Icons.arrowRight className="h-4 w-4" />
       </Button>
     </Link>
@@ -164,21 +164,21 @@ function Prototype({
   return (
     <Link
       href={`/craft/${slug}`}
-      className="border rounded-xl p-1 flex flex-col w-full bg-zinc-50 dark:bg-zinc-900"
+      className="flex w-full flex-col rounded-xl border bg-zinc-50 p-1 dark:bg-zinc-900"
     >
       <div
         className={cn(
           "relative overflow-hidden rounded-lg",
-          "before:content-[''] before:absolute before:h-52 before:w-full before:bg-[linear-gradient(to_top,rgba(0,0,0,0.9),50%,rgba(0,0,0,0))] before:-bottom-16 before:inset-x-0 before:pointer-events-none"
+          "before:pointer-events-none before:absolute before:inset-x-0 before:-bottom-16 before:h-52 before:w-full before:bg-[linear-gradient(to_top,rgba(0,0,0,0.9),50%,rgba(0,0,0,0))] before:content-['']"
         )}
       >
-        <video src={videoUrl} className="w-full min-w-full h-auto" />
-        <div className="flex justify-between w-full px-3 py-3 text-sm mt-auto z-10 absolute inset-x-0 bottom-0">
+        <video src={videoUrl} className="h-auto w-full min-w-full" />
+        <div className="absolute inset-x-0 bottom-0 z-10 mt-auto flex w-full justify-between px-3 py-3 text-sm">
           <p className="line-clamp-1 text-white">{title}</p>
           <p className="text-neutral-300">{date}</p>
         </div>
       </div>
-      <Button className="flex items-center gap-2 mt-1" variant="secondary">
+      <Button className="mt-1 flex items-center gap-2" variant="secondary">
         View Prototype <Icons.arrowRight className="h-4 w-4" />
       </Button>
     </Link>

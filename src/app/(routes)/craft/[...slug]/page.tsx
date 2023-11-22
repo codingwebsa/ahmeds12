@@ -55,13 +55,13 @@ export default async function CraftPage({ params }: CraftPageProps) {
 
   return (
     <main className="min-h-[100dvh] scroll-smooth">
-      <div className="flex items-start gap-1 mx-auto max-w-[1450px]">
+      <div className="mx-auto flex max-w-[1450px] items-start gap-1">
         {/* sidebar */}
-        <div className="flex-1 inset-x-0 sticky top-0 py-28 hidden lg:flex lg:flex-col lg:items-start">
+        <div className="sticky inset-x-0 top-0 hidden flex-1 py-28 lg:flex lg:flex-col lg:items-start">
           <div className="mx-auto px-4 xl:px-10">
             <Link
               href="/craft"
-              className="flex gap-2 dark:text-neutral-400 text-neutral-700 items-center text-sm"
+              className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-400"
             >
               <Icons.arrowBendUpLeft className="h-4 w-4" />
               <p>Craft</p>
@@ -69,10 +69,10 @@ export default async function CraftPage({ params }: CraftPageProps) {
             <Topics items={toc} />
           </div>
         </div>
-        <section className="flex-[2] lg:px-2 py-28 px-4 sm:px-10 md:px-16">
+        <section className="flex-[2] px-4 py-28 sm:px-10 md:px-16 lg:px-2">
           <Link
             href="/craft"
-            className="flex gap-2 dark:text-neutral-400 text-neutral-700 justify-start text-sm items-center lg:hidden mb-6"
+            className="mb-6 flex items-center justify-start gap-2 text-sm text-neutral-700 dark:text-neutral-400 lg:hidden"
           >
             <Icons.arrowBendUpLeft className="h-4 w-4" />
             <p>Craft</p>
@@ -82,7 +82,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
             <Mdx code={craft.body.code} />
           </div>
         </section>
-        <div className="xl:flex-1 hidden lg:block lg:flex-[0.5]" />
+        <div className="hidden lg:block lg:flex-[0.5] xl:flex-1" />
       </div>
     </main>
   )

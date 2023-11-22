@@ -24,8 +24,8 @@ export default function CraftPageHeader({
   return (
     <div className="flex items-center gap-1">
       <div className="flex-1">
-        <h1 className="font-semibold text-xl">{title}</h1>
-        <p className="text-base dark:text-neutral-400 text-neutral-700">
+        <h1 className="text-xl font-semibold">{title}</h1>
+        <p className="text-base text-neutral-700 dark:text-neutral-400">
           {date}
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function CraftPageHeader({
                 onClick={copyUrl}
                 className="rounded-full"
               >
-                <Icons.link className="h-4 w-4 inline-flex" />
+                <Icons.link className="inline-flex h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>

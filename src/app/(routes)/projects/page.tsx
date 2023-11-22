@@ -74,7 +74,7 @@ export default function ProjectsPage() {
   ]
 
   return (
-    <main className="max-w-2xl mx-auto px-2 mt-32">
+    <main className="mx-auto mt-32 max-w-2xl px-2">
       <div className="flex flex-col">
         {projects.map((project, i) => {
           return (
