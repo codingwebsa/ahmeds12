@@ -11,6 +11,7 @@ import { Icons } from "~/components/icons"
 
 import CraftPageHeader from "./_components/craft-page-header"
 import Topics from "./_components/topics"
+import Footer from "./_components/footer"
 
 interface CraftPageProps {
   params: {
@@ -81,6 +82,7 @@ export default async function CraftPage({ params }: CraftPageProps) {
           <div className="mt-6">
             <Mdx code={craft.body.code} />
           </div>
+          <Footer />
         </section>
         <div className="hidden lg:block lg:flex-[0.5] xl:flex-1" />
       </div>
