@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { ReactNode, useRef, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import {
   motion,
   MotionValue,
@@ -31,10 +32,18 @@ export default function Dock() {
       className="mx-auto flex h-14 items-end gap-2 rounded-full border border-[hsl(0_0%_0%/0.077)] bg-[hsl(0,0%,95%)] px-2 pb-1.5 dark:border-[hsl(0_0%_100%/0.077)] dark:bg-[hsl(0,0%,8.5%)]"
     >
       <TooltipProvider delayDuration={0}>
-        <HomeIcon mouseX={mouseX} />
-        <CraftIcon mouseX={mouseX} />
-        <ProjectsIcon mouseX={mouseX} />
-        <PhotosIcon mouseX={mouseX} />
+        <ActiveIndicator href={"/"}>
+          <HomeIcon mouseX={mouseX} />
+        </ActiveIndicator>
+        <ActiveIndicator href="/craft">
+          <CraftIcon mouseX={mouseX} />
+        </ActiveIndicator>
+        <ActiveIndicator href="/projects">
+          <ProjectsIcon mouseX={mouseX} />
+        </ActiveIndicator>
+        <ActiveIndicator href="/photos">
+          <PhotosIcon mouseX={mouseX} />
+        </ActiveIndicator>
         <hr className="h-9 w-px bg-gradient-to-b from-transparent via-black/20 to-transparent dark:via-white/20" />
         <TwitterIcon mouseX={mouseX} />
         <EmailIcon mouseX={mouseX} />
@@ -42,6 +51,28 @@ export default function Dock() {
         <ToggleTheme mouseX={mouseX} />
       </TooltipProvider>
     </motion.div>
+  )
+}
+
+function ActiveIndicator({
+  children,
+  href,
+}: {
+  children: ReactNode
+  href: string
+}) {
+  const path = usePathname()
+
+  return (
+    <div className="relative">
+      {children}{" "}
+      {path === href && (
+        <motion.span
+          layoutId="active-indicator"
+          className="h-1 w-1 absolute rounded-full bg-neutral-400 dark:bg-neutral-700 left-1/2 -translate-x-1/2 -bottom-1.5"
+        />
+      )}
+    </div>
   )
 }
 
