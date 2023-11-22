@@ -10,8 +10,8 @@ import "~/styles/mdx.css"
 import { Icons } from "~/components/icons"
 
 import CraftPageHeader from "./_components/craft-page-header"
-import Topics from "./_components/topics"
 import Footer from "./_components/footer"
+import Topics from "./_components/topics"
 
 interface CraftPageProps {
   params: {

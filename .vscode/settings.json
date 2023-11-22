@@ -1,7 +1,4 @@
 {
-  "cSpell.words": [
-    "contentlayer",
-    "Knockabid"
-  ],
+  "cSpell.words": ["contentlayer", "Knockabid"],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

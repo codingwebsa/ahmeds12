@@ -5,29 +5,29 @@ import KnockAbidLogo from "~/../public/images/knockabid-logo.jpg"
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t pt-5 mt-20 flex justify-center">
-      <div className="flex dark:text-neutral-400">
+    <footer className="mt-20 flex w-full justify-center border-t pt-5">
+      <div className="flex text-neutral-600 dark:text-neutral-400">
         <p>Crafted by</p>
-        <div className="flex ml-2">
+        <div className="ml-2 flex">
           <Image
             src={AhmedLogo}
-            className="max-w-[20px] rounded-full inline-block object-cover"
+            className="inline-block max-w-[20px] rounded-full object-cover"
             width={20}
             height={20}
             alt=""
           />
-          <p className="text-white ml-1">Ahmed</p>
+          <p className="ml-1 text-black dark:text-white">Ahmed</p>
         </div>
         <p className="ml-2">and</p>
-        <div className="flex ml-2">
+        <div className="ml-2 flex">
           <Image
             src={KnockAbidLogo}
-            className="max-w-[20px] rounded-full inline-block object-cover"
+            className="inline-block max-w-[20px] rounded-full object-cover"
             width={20}
             height={20}
             alt=""
           />
-          <p className="text-white ml-1">Knockabid</p>
+          <p className="ml-1 text-black dark:text-white">Knockabid</p>
         </div>
       </div>
     </footer>

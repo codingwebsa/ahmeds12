@@ -69,7 +69,7 @@ function ActiveIndicator({
       {path === href && (
         <motion.span
           layoutId="active-indicator"
-          className="h-1 w-1 absolute rounded-full bg-neutral-400 dark:bg-neutral-700 left-1/2 -translate-x-1/2 -bottom-1.5"
+          className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-neutral-400 dark:bg-neutral-700"
         />
       )}
     </div>
