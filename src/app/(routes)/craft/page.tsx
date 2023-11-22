@@ -63,6 +63,7 @@ export default function CraftPage() {
               return (
                 <Video
                   title={craft.title}
+                  key={`craft-${i}`}
                   src={craft.thumbnailVideo ?? "Hello World"}
                   description={craft.description ?? "By Ahmed"}
                 />
