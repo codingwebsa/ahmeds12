@@ -65,7 +65,6 @@ module.exports = {
       "always",
       [
         "add",
-        "create",
         "update",
         "fix",
         "chore",
