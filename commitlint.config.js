@@ -63,16 +63,7 @@ module.exports = {
     "gitmoji-type-enum": [
       2,
       "always",
-      [
-        "add",
-        "update",
-        "fix",
-        "chore",
-        "ci",
-        "feature",
-        "style",
-        "build",
-      ],
+      ["add", "update", "fix", "chore", "ci", "feature", "style", "build"],
     ],
     "subject-empty": [2, "never"],
     "body-leading-blank": [2, "always"],
