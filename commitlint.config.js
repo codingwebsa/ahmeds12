@@ -70,7 +70,6 @@ module.exports = {
         "chore",
         "ci",
         "feature",
-        "bugfix",
         "style",
         "build",
       ],
